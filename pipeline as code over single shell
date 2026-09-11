@@ -1,0 +1,15 @@
+pipeline {
+    agent any 
+    stages {
+        stage('one') {
+            steps {
+                git 'https://github.com/Iamnishantraj/jenkins-java-project.git'
+                sh '''
+                 mvn compile
+                 mvn test
+                 mvn clean package
+                '''
+            }
+        }
+    }
+}
